@@ -1,0 +1,2 @@
+speaker-1: Just Listen!
+speaker-2: I am the qween! You listen to me!

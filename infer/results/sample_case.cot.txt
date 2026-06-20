@@ -1,0 +1,8 @@
+<Act>: 直接表达不满
+<Scene>: 感到被忽视或不被尊重
+<Motivation>: 因被忽视而感到不满
+<Goal>: 希望引起注意或改变现状
+<Emotion>: 情绪从平静转向不满
+<Valid duration | Total duration>: 1.450000s | 1.586313s
+<Loudness | Expressive Intensity>: -31.365203dBFS | 0.831543
+[Summary] 因为感到被忽视和不满，所以带着失望又生气的情绪说了'It is so unfair.'

@@ -1,0 +1,32 @@
+{
+  "case_name": "sample_case",
+  "target_text": "It is so unfair!",
+  "history_audio_paths": [
+    "infer/cases/sample_case/history.wav"
+  ],
+  "ref_audio_path": "infer/cases/sample_case/reference.wav",
+  "history_mode": "full",
+  "history_global_tokens": 32,
+  "history_semantic_tokens": 214,
+  "ref_global_tokens": 32,
+  "num_candidates": 1,
+  "rerank_metric": "none",
+  "selected_candidate_idx": 1,
+  "selected_candidate_rank": 1,
+  "selected_score": null,
+  "generated_global_tokens": 32,
+  "generated_semantic_tokens": 76,
+  "global_source": "ref",
+  "parse_source": "audio_tar_block",
+  "candidates": [
+    {
+      "candidate_idx": 1,
+      "global_tokens": 32,
+      "semantic_tokens": 76,
+      "global_source": "ref",
+      "parse_source": "audio_tar_block",
+      "score": null,
+      "wav_path": "infer/results/sample_case.wav"
+    }
+  ]
+}
