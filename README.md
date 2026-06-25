@@ -1,5 +1,13 @@
 # ISCSLP2026 Challenge Baseline
 
+> Project policy for `wyx0606h/challenge2-ISCSLP`: `main` is the frozen
+> project root and official-baseline reference. Do not run experiments or
+> commit experimental code directly on `main`. All experiments must start
+> from an `exp/*` branch; the first one is `exp/baseline`.
+>
+> Start with [CHALLENGE_PLAN.md](CHALLENGE_PLAN.md), [AGENTS.md](AGENTS.md),
+> and [docs/SERVER_RUNBOOK.md](docs/SERVER_RUNBOOK.md).
+
 This repository contains the inference code for two COT-TTS baselines:
 
 - audio-history COT-TTS: the dialogue history is provided as audio

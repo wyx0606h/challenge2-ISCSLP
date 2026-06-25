@@ -1,0 +1,38 @@
+# Large challenge assets
+model/
+data/
+datasets/
+checkpoints/
+artifacts/
+outputs/
+submissions/
+
+# Generated inference files
+infer/results/*
+!infer/results/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and caches
+.venv/
+venv/
+.conda/
+.cache/
+.huggingface/
+
+# Logs and local configuration
+*.log
+.env
+.env.*
+*.local
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
