@@ -184,7 +184,41 @@ Use synchronization around GPU timing, warm up first, and report:
 
 Official eligibility requires RTF `<=3.0`.
 
-## 9. Offline Packaging Test
+## 9. Evaluation Harness TODO
+
+After the official sample succeeds, run every candidate through a local Track 1
+evaluation harness before trusting any subjective comparison.
+
+The first implementation should provide:
+
+```bash
+python tools/eval_track1.py \
+  --manifest "$ISCSLP_ARTIFACTS/manifests/track1_fast_dev.jsonl" \
+  --output-dir "$ISCSLP_ARTIFACTS/eval/baseline_fast_dev" \
+  --checkpoint "$ISCSLP_MODELS/cot_tts_text_history_baseline/checkpoints/global_step_24500" \
+  --spark-model-dir "$ISCSLP_MODELS/Spark-TTS" \
+  --device cuda:0
+```
+
+Expected artifacts:
+
+- per-sample reasoning text and WAV paths;
+- output-coverage and audio-validity report;
+- bilingual CER/WER proxy report;
+- reasoning grounding and non-template checks;
+- speech/style proxy features and slice summaries;
+- parameter-count report with `<1B` hard gate;
+- steady-state and end-to-end RTF report with peak VRAM;
+- one Markdown summary that can be copied into `experiments/`.
+
+Keep the manifest immutable once frozen. Baseline and improved systems must use
+the same sample IDs, reference audio, context text, target text, decoding
+settings policy, and metric versions unless an experiment record explicitly
+declares the change.
+
+See `docs/EVALUATION_TODO.md` for the full design checklist.
+
+## 10. Offline Packaging Test
 
 Before submission:
 
@@ -199,13 +233,15 @@ Before submission:
 The package must include all model assets, tokenizers, vocoders, configs, and
 auxiliary files required at inference time.
 
-## 10. First Server Session Checklist
+## 11. First Server Session Checklist
 
 - [ ] On `exp/baseline`, not `main`.
 - [ ] Correct official model and dataset checksums recorded.
 - [ ] GPU, CUDA, driver, Python, PyTorch captured.
 - [ ] Official sample succeeds.
 - [ ] Small bilingual manifest succeeds.
+- [ ] Local Track 1 evaluation harness TODO reviewed and any available checks
+      run.
 - [ ] Parameter audit complete and `<1B`.
 - [ ] RTF measured and `<=3.0`.
 - [ ] No network access needed after assets are staged.
