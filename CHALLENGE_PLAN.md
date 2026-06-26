@@ -211,14 +211,31 @@ Actions:
 Local metric suite:
 
 - intelligibility: Chinese CER and English WER proxy;
+- speech quality/naturalness: UTMOSv2 and DNSMOS P.835 when local declared
+  evaluators are available;
 - speaker similarity proxy;
-- speech quality/naturalness proxy;
-- F0, energy, duration, pause, and speaking-rate statistics;
-- emotion/style agreement proxy;
+- F0 correlation and related pitch/prosody statistics;
+- emotion expressiveness/style agreement proxy;
+- duration error, pause, energy, and speaking-rate statistics;
 - reasoning checks for specificity, context grounding, coherence, and
   non-template behavior;
 - speech-reasoning consistency review;
 - RTF, peak VRAM, failure rate, and parameter count.
+
+Final competition-facing metric plan:
+
+- UTMOSv2 for speech naturalness/quality proxy;
+- DNSMOS P.835 for signal quality/background noise/overall quality proxy;
+- Chinese CER and English WER for intelligibility;
+- speaker similarity for reference timbre preservation;
+- F0 correlation for prosody tracking;
+- emotion expressiveness for context/style realization;
+- duration error for rhythm and speaking-rate control;
+- RTF for efficiency, with official gate `<=3.0`;
+- LLM scoring for contextual understanding, reasoning coherence, and
+  informativeness;
+- human scoring for contextual coherence, reasoning accuracy,
+  informativeness, naturalness, and speech-reasoning consistency.
 
 Automatic metrics are for iteration, not claims of exact leaderboard parity.
 

@@ -35,9 +35,11 @@ Required capabilities:
   finite audio, expected sample rate, plausible duration, and no missing token
   artifacts;
 - compute Chinese CER and English WER proxies separately;
-- compute speech-quality, speaker-similarity, duration, speaking-rate, F0,
-  energy, pause, and style/prosody proxy features where local models or
-  deterministic DSP are available;
+- compute UTMOSv2 and DNSMOS P.835 speech-quality proxies where local declared
+  evaluators are available;
+- compute speaker similarity, F0 correlation, emotion expressiveness, duration
+  error, speaking-rate, energy, pause, and style/prosody proxy features where
+  local models or deterministic DSP are available;
 - score reasoning specificity, context grounding, coherence, non-template
   behavior, and whether the synthesized speech appears consistent with the
   stated reasoning;
@@ -55,6 +57,19 @@ compliance first, then human-facing context/style appropriateness and
 speech-reasoning consistency, then naturalness, speaker similarity,
 intelligibility, and efficiency. Automatic metrics are iteration aids only; do
 not present them as official leaderboard-equivalent scores.
+
+Planned reported metrics:
+
+- UTMOSv2;
+- DNSMOS P.835;
+- Chinese CER and English WER;
+- speaker similarity;
+- F0 correlation;
+- emotion expressiveness;
+- duration error;
+- RTF;
+- LLM score;
+- human score.
 
 ## Submission Description Must Cover
 

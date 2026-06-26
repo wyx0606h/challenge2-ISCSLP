@@ -125,18 +125,36 @@ Automatic metrics are iteration aids, not official-score claims.
 
 Implement and report:
 
+- UTMOSv2 for speech naturalness/quality proxy;
+- DNSMOS P.835 for signal quality/background noise/overall quality proxy;
 - Chinese CER proxy;
 - English WER proxy;
 - language-separated and worst-language summaries;
-- duration, speaking rate, pause ratio, F0, energy, and simple prosody
+- speaker similarity proxy;
+- F0 correlation and related pitch/prosody statistics;
+- emotion expressiveness/style agreement proxy;
+- duration error, speaking rate, pause ratio, energy, and simple prosody
   statistics;
-- speech-quality and speaker-similarity proxies if local, declared models are
-  available;
 - failure rates and latency/VRAM metrics.
 
 When an auxiliary model is used only for offline evaluation, record it in the
 experiment resource manifest. If the same model is loaded during inference, it
 counts toward the `<1B` parameter limit.
+
+For paper and submission planning, maintain a compact final metric table with:
+
+| Metric | Intended role | Notes |
+|---|---|---|
+| UTMOSv2 | Speech naturalness/quality proxy | Local evaluator only; declare model/version |
+| DNSMOS P.835 | Signal/background/overall quality proxy | Local evaluator only; declare model/version |
+| CER/WER | Chinese/English intelligibility | Report separately by language |
+| Speaker similarity | Reference timbre preservation | Report model/version and reference policy |
+| F0 correlation | Prosody tracking | Use only when ground-truth target audio exists |
+| Emotion expressiveness | Context/style realization | Proxy metric plus manual review where needed |
+| Duration error | Rhythm and speaking-rate control | Use absolute/relative error by sample |
+| RTF | Efficiency | Hard official gate: `<=3.0` |
+| LLM score | Reasoning/context quality | Use only with declared, reproducible offline or review protocol |
+| Human score | Context, reasoning, naturalness, consistency | Blinded internal review for local selection |
 
 ## 6. Reasoning and Context Checks
 
