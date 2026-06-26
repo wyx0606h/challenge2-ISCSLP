@@ -18,6 +18,44 @@ Verified on 2026-06-25.
 | Hidden-data integrity | No lookup/reconstruction/source tracing | Team policy and code review |
 | Validity | No missing files, bad formats, incomplete generation, or severe mismatch | Full-package validator |
 
+## Evaluation Harness TODO
+
+Build local evaluation scripts that are deliberately aligned with Track 1
+rather than generic TTS benchmarking. The scripts should support both the
+official baseline and later `exp/*` systems without changing the frozen
+validation manifests.
+
+Required capabilities:
+
+- load a manifest containing ordered speaker-labeled dialogue history, target
+  text, reference speech, expected language, and slice tags;
+- run the Track 1 inference entrypoint offline and write one reasoning file and
+  one WAV file per sample;
+- validate 100% output coverage, non-empty sample-specific reasoning, readable
+  finite audio, expected sample rate, plausible duration, and no missing token
+  artifacts;
+- compute Chinese CER and English WER proxies separately;
+- compute speech-quality, speaker-similarity, duration, speaking-rate, F0,
+  energy, pause, and style/prosody proxy features where local models or
+  deterministic DSP are available;
+- score reasoning specificity, context grounding, coherence, non-template
+  behavior, and whether the synthesized speech appears consistent with the
+  stated reasoning;
+- measure steady-state and end-to-end RTF with GPU synchronization, generated
+  audio duration, peak VRAM, batch size, precision, and hardware recorded;
+- audit inference-time parameters for every loaded or invoked module and fail
+  the run if the total reaches `>=1B`;
+- report bilingual and worst-slice behavior across language, context length,
+  expressive intensity, noise, duration, and reference quality;
+- emit machine-readable JSON/CSV plus a compact Markdown summary suitable for
+  experiment records.
+
+The local score should mirror the official emphasis: validity and rule
+compliance first, then human-facing context/style appropriateness and
+speech-reasoning consistency, then naturalness, speaker similarity,
+intelligibility, and efficiency. Automatic metrics are iteration aids only; do
+not present them as official leaderboard-equivalent scores.
+
 ## Submission Description Must Cover
 
 - selected track and category;

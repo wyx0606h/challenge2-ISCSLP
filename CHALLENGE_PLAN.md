@@ -222,6 +222,12 @@ Local metric suite:
 
 Automatic metrics are for iteration, not claims of exact leaderboard parity.
 
+Evaluation-script TODOs are tracked in `docs/EVALUATION_TODO.md`. Treat this
+as a required companion to baseline reproduction: every baseline or improved
+system comparison must run through the same frozen manifests, output validator,
+parameter audit, RTF measurement, bilingual slice report, and reasoning/speech
+consistency checks before it is considered actionable.
+
 ### Phase 3 — Low-risk baseline improvements (June 29-July 8)
 
 Run one controlled hypothesis at a time:
