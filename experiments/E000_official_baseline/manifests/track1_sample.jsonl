@@ -1,0 +1,1 @@
+{"sample_id":"official_sample_case","language":"en","history_text_path":"infer/cases/sample_case/history.txt","target_text_path":"infer/cases/sample_case/target.txt","reference_audio_path":"infer/cases/sample_case/reference.wav","target_audio_path":null,"cot_text":null,"notes":"Official repository sample has no target.wav and no gold CoT label."}
